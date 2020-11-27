@@ -1,0 +1,57 @@
+Countries	LifeExpectancy
+European Union - 27 countries (from 2020)	81
+European Union - 28 countries (2013-2020)	81
+European Union - 27 countries (2007-2013)	81
+Euro area - 19 countries  (from 2015)	82.1
+Euro area - 18 countries (2014)	82.2
+Belgium	81.7
+Bulgaria	75
+Czechia	79.1
+Denmark	81
+Germany (until 1990 former territory of the FRG)	81
+Germany including former GDR	81
+Estonia	78.5
+Ireland	82.3
+Greece	81.9
+Spain	83.5
+France	82.9
+France (metropolitan)	:
+Croatia	78.2
+Italy	83.4
+Cyprus	82.9
+Latvia	75.1
+Lithuania	76
+Luxembourg	82.3
+Hungary	76.2
+Malta	82.5
+Netherlands	81.9
+Austria	81.8
+Poland	77.7
+Portugal	81.5
+Romania	75.3
+Slovenia	81.5
+Slovakia	77.4
+Finland	81.8
+Sweden	82.6
+United Kingdom	81.3
+European Economic Area (EU28 - 2013-2020 and IS, LI, NO)	81
+European Economic Area (EU27 - 2007-2013 and IS, LI, NO)	81.1
+European Free Trade Association	83.4
+Iceland	82.9
+Liechtenstein	83.1
+Norway	82.8
+Switzerland	83.8
+Montenegro	76.9
+North Macedonia	76.7
+Albania	78.9
+Serbia	75.9
+Turkey	78.9
+Belarus	74.5
+Kosovo (under United Nations Security Council Resolution 1244/99)	:
+Moldova	:
+Russia	:
+San Marino	:
+Ukraine	73.2
+Armenia	76.7
+Azerbaijan	76
+Georgia	74

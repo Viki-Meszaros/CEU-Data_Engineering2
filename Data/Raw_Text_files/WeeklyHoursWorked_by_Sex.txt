@@ -1,0 +1,79 @@
+Countries	Weekly_Hours	Sex	ID
+European Union - 27 countries (from 2020)	34.1	Female	European Union - 27 countries (from 2020)-Female
+European Union - 28 countries (2013-2020)	33.7	Female	European Union - 28 countries (2013-2020)-Female
+European Union - 15 countries (1995-2004)	32.5	Female	European Union - 15 countries (1995-2004)-Female
+Euro area - 19 countries  (from 2015)	32.9	Female	Euro area - 19 countries  (from 2015)-Female
+Belgium	33.5	Female	Belgium-Female
+Bulgaria	40.3	Female	Bulgaria-Female
+Czechia	38.2	Female	Czechia-Female
+Denmark	31.2	Female	Denmark-Female
+Germany	30.5	Female	Germany-Female
+Estonia	36.9	Female	Estonia-Female
+Ireland	32.2	Female	Ireland-Female
+Greece	38.9	Female	Greece-Female
+Spain	34.7	Female	Spain-Female
+France	34.5	Female	France-Female
+Croatia	39	Female	Croatia-Female
+Italy	33	Female	Italy-Female
+Cyprus	37.5	Female	Cyprus-Female
+Latvia	38	Female	Latvia-Female
+Lithuania	38	Female	Lithuania-Female
+Luxembourg	34.7	Female	Luxembourg-Female
+Hungary	38.9	Female	Hungary-Female
+Malta	36	Female	Malta-Female
+Netherlands	25.3	Female	Netherlands-Female
+Austria	31.9	Female	Austria-Female
+Poland	38.5	Female	Poland-Female
+Portugal	38	Female	Portugal-Female
+Romania	39	Female	Romania-Female
+Slovenia	37.8	Female	Slovenia-Female
+Slovakia	38.7	Female	Slovakia-Female
+Finland	34.8	Female	Finland-Female
+Sweden	34.7	Female	Sweden-Female
+United Kingdom	31.9	Female	United Kingdom-Female
+Iceland	34.9	Female	Iceland-Female
+Norway	31.3	Female	Norway-Female
+Switzerland	29.3	Female	Switzerland-Female
+Montenegro	42.8	Female	Montenegro-Female
+North Macedonia	41.7	Female	North Macedonia-Female
+Serbia	41.7	Female	Serbia-Female
+Turkey	40.8	Female	Turkey-Female
+European Union - 27 countries (from 2020)	39.8	Male	European Union - 27 countries (from 2020)-Male
+European Union - 28 countries (2013-2020)	39.9	Male	European Union - 28 countries (2013-2020)-Male
+European Union - 15 countries (1995-2004)	39.6	Male	European Union - 15 countries (1995-2004)-Male
+Euro area - 19 countries  (from 2015)	39.6	Male	Euro area - 19 countries  (from 2015)-Male
+Belgium	40.5	Male	Belgium-Male
+Bulgaria	41	Male	Bulgaria-Male
+Czechia	41.7	Male	Czechia-Male
+Denmark	35.5	Male	Denmark-Male
+Germany	38.7	Male	Germany-Male
+Estonia	39.5	Male	Estonia-Male
+Ireland	40.2	Male	Ireland-Male
+Greece	44.2	Male	Greece-Male
+Spain	40.2	Male	Spain-Male
+France	39.8	Male	France-Male
+Croatia	40.1	Male	Croatia-Male
+Italy	40.3	Male	Italy-Male
+Cyprus	41	Male	Cyprus-Male
+Latvia	39.7	Male	Latvia-Male
+Lithuania	39.4	Male	Lithuania-Male
+Luxembourg	40	Male	Luxembourg-Male
+Hungary	40.2	Male	Hungary-Male
+Malta	40.9	Male	Malta-Male
+Netherlands	34.9	Male	Netherlands-Male
+Austria	40.5	Male	Austria-Male
+Poland	41.9	Male	Poland-Male
+Portugal	40.9	Male	Portugal-Male
+Romania	40	Male	Romania-Male
+Slovenia	40.4	Male	Slovenia-Male
+Slovakia	40.9	Male	Slovakia-Male
+Finland	38.5	Male	Finland-Male
+Sweden	38	Male	Sweden-Male
+United Kingdom	40.6	Male	United Kingdom-Male
+Iceland	42.9	Male	Iceland-Male
+Norway	36	Male	Norway-Male
+Switzerland	39.3	Male	Switzerland-Male
+Montenegro	45.1	Male	Montenegro-Male
+North Macedonia	42.7	Male	North Macedonia-Male
+Serbia	43.8	Male	Serbia-Male
+Turkey	47.9	Male	Turkey-Male

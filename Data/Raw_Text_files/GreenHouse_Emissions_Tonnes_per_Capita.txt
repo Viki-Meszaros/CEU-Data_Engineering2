@@ -1,0 +1,36 @@
+Countries	GH_Emission_PerCap
+European Union - 27 countries (from 2020)	8.7
+European Union - 28 countries (2013-2020)	8.6
+Belgium	10.8
+Bulgaria	8.3
+Czechia	12.2
+Denmark	8.9
+Germany	10.7
+Estonia	15.3
+Ireland	13.2
+Greece	9
+Spain	7.5
+France	6.9
+Croatia	6
+Italy	7.3
+Cyprus	11.3
+Latvia	6.3
+Lithuania	7.4
+Luxembourg	20.3
+Hungary	6.6
+Malta	5.5
+Netherlands	11.6
+Austria	9.2
+Poland	11
+Portugal	7
+Romania	6
+Slovenia	8.5
+Slovakia	8
+Finland	10.7
+Sweden	5.4
+United Kingdom	7.5
+Iceland	17.5
+Liechtenstein	4.8
+Norway	10.1
+Switzerland	6.1
+Turkey	6.5

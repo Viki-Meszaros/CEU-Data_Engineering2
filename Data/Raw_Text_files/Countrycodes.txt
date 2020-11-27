@@ -1,0 +1,57 @@
+country_code	countries
+AL	Albania
+AM	Armenia
+AT	Austria
+AZ	Azerbaijan
+BE	Belgium
+BG	Bulgaria
+BY	Belarus
+CH	Switzerland
+CY	Cyprus
+CZ	Czechia
+DE	Germany
+DE_TOT	Germany including former GDR
+DK	Denmark
+EA18	Euro area - 18 countries (2014)
+EA19	Euro area - 19 countries  (from 2015)
+EE	Estonia
+EEA30_2007	European Economic Area (EU27 - 2007-2013 and IS, LI, NO)
+EEA31	European Economic Area (EU28 - 2013-2020 and IS, LI, NO)
+EFTA	European Free Trade Association
+EL	Greece
+ES	Spain
+EU27_2007	European Union - 27 countries (2007-2013)
+EU27_2020	European Union - 27 countries (from 2020)
+EU28	European Union - 28 countries (2013-2020)
+FI	Finland
+FR	France
+FX	France (metropolitan)
+GE	Georgia
+HR	Croatia
+HU	Hungary
+IE	Ireland
+IS	Iceland
+IT	Italy
+LI	Liechtenstein
+LT	Lithuania
+LU	Luxembourg
+LV	Latvia
+MD	Moldova
+ME	Montenegro
+MK	North Macedonia
+MT	Malta
+NL	Netherlands
+NO	Norway
+PL	Poland
+PT	Portugal
+RO	Romania
+RS	Serbia
+RU	Russia
+SE	Sweden
+SI	Slovenia
+SK	Slovakia
+SM	San Marino
+TR	Turkey
+UA	Ukraine
+UK	United Kingdom
+XK	Kosovo (under United Nations Security Council Resolution 1244/99)
