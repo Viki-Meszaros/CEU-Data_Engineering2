@@ -89,24 +89,52 @@ IGNORE 1 LINES
 	(Countrycodes, Countries);
 
 
-
-
-
--- select * from Countrycodes;
-
+-- Formalize Datatable -> 1 row / Country
 drop view if exists Denormalized_Dataset;
 create view Denormalized_Dataset as
-with AvgWorkHours as (
-select CountryCodes, w.Countries, Weekly_Hours, Sex 
-from weeklyworkhours w
-left join CountryCodes c on w.Countries = c.Countries) 
-Select w.CountryCodes, Weekly_Hours, Sex, LifeExpectancy, GH_Emission_percap, Employment_Rate, Child_Age, Education_level  
-from AvgWorkHours w
-left join Lifeexpectancy l on w.Countries = l.Countries
-left join greenhouse_emissions g on w.Countries = g.Countries
-left join employment_rate e on w.Countries = e.Countries;
+select Countrycodes, w1.Countries, Gh_Emission_PerCap
+		, LifeExpectancy as Nation_LifeExp
+		, Weekly_hours as Female_WkHrs
+		, Male_WorkHours as	Male_WkHrs
+		, Emp_Rate_All
+		, Emp_Rate_PrimarySchool 	as Emp_Rate_PSch
+        , Emp_rate_Highschool 		as Emp_Rate_HSch
+        , Emp_rate_University		as Emp_Rate_Uni
+    from weeklyworkhours w1	
+left join (
+	select Countries, Weekly_hours as Male_WorkHours 
+	from weeklyworkhours w1
+    where sex = 'Male') 
+    f on f.Countries = w1.Countries
+left join Countrycodes c on c.Countries = w1.Countries 
+left join Lifeexpectancy l on l.Countries = w1.Countries 
+left join (Select f.Countries
+,f.employment_rate as Emp_Rate_PrimarySchool
+,  Emp_Rate_HighSchool,  Emp_Rate_University, Emp_Rate_All
+	from employment_rate f
+left join (
+	Select countries, employment_rate as Emp_Rate_HighSchool
+    from employment_rate
+	where education_level = '3-4'
+) f1 on f1.Countries = f.Countries
+left join (
+	Select countries, employment_rate as Emp_Rate_University
+    from employment_rate
+	where education_level = '5-8'
+) f2 on f2.Countries = f.Countries
+left join (
+	Select countries, employment_rate as Emp_Rate_All
+    from employment_rate
+	where education_level = 'All'
+) f3 on f3.Countries = f.Countries
+	where education_level = '0-2') 
+    e on e.countries = w1.countries
+left join greenhouse_emissions g on g.Countries = w1.Countries
+	where sex = 'Female' ;
+ 
+ select * from Denormalized_Dataset;
 
-
+-- 2) Dataset Normalization
 drop view if exists Education;
 Create view Education as
 select distinct(Education_level) from Denormalized_Dataset; 
