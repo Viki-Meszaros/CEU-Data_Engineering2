@@ -56,6 +56,26 @@ IGNORE 1 LINES
 set 	
 Weekly_Hours = nullif(@Weekly_Hours, ':');
 
+drop table if exists WorkHours;
+CREATE TABLE WorkHours
+(Countries varchar(100) NOT NULL,
+Weekly_Hours FLOAT,
+PRIMARY KEY(Countries));
+
+SHOW VARIABLES LIKE "secure_file_priv";
+LOAD DATA INFILE 'c:/ProgramData/MySQL/MySQL Server 8.0/Uploads/WorkHours.txt' 
+INTO TABLE WorkHours
+FIELDS TERMINATED BY '	' 
+LINES TERMINATED BY '\r\n' 
+IGNORE 1 LINES 
+	(Countries, @Weekly_Hours )
+set 	
+Weekly_Hours = nullif(@Weekly_Hours, ':');
+
+
+
+
+
 
 
 drop table if exists LifeExpectancy;
@@ -94,7 +114,8 @@ drop view if exists Denormalized_Dataset;
 create view Denormalized_Dataset as
 select Countrycodes, w1.Countries, Gh_Emission_PerCap
 		, LifeExpectancy as Nation_LifeExp
-		, Weekly_hours as Female_WkHrs
+        , w.Weekly_Hours as WkHrs_All
+		, w1.Weekly_hours as Female_WkHrs
 		, Male_WorkHours as	Male_WkHrs
 		, Emp_Rate_All
 		, Emp_Rate_PrimarySchool 	as Emp_Rate_PSch
@@ -130,21 +151,39 @@ left join (
 	where education_level = '0-2') 
     e on e.countries = w1.countries
 left join greenhouse_emissions g on g.Countries = w1.Countries
+left join workhours w on w.Countries = w1.Countries
 	where sex = 'Female' ;
- 
- select * from Denormalized_Dataset;
-
--- 2) Dataset Normalization
-drop view if exists Education;
-Create view Education as
-select distinct(Education_level) from Denormalized_Dataset; 
-
-drop view if exists Gender;
-Create view Gender as
-select distinct(sex) from Denormalized_Dataset;
- 
-drop view if exists Countries;
-Create view Countries as
-select * from Countrycodes; 
+    
+    
+    
+-- 1) Main Table -> 2 Load in KNIME
+drop view if exists Main_Table;
+create view Main_Table as 
+select Countries
+	, Gh_Emission_percap 	as GreenHouse_Em_percap
+    , Nation_lifeExp 		as LifeExpectancy
+    , WkHrs_all				as Weekly_AvgWkHrs
+    , Emp_Rate_All			as Employment_Rate
+from Denormalized_Dataset;
  
 
+-- 2) Workhours by Gender
+drop view if exists Avg_WkHrs_by_Gender;
+create view Avg_WkHrs_by_Gender as 
+select Countries, WkHrs_all, Female_WkHrs, Male_WkHrs
+from Denormalized_Dataset;
+
+-- 3) Employment rate by Education Level
+drop view if exists EmploymentRate_by_Education;
+create view EmploymentRate_by_Education as
+select Countries
+	, Emp_Rate_All
+	, Emp_Rate_PSch
+    , Emp_Rate_HSch
+    , Emp_Rate_Uni
+from Denormalized_Dataset;
+
+
+
+
+ 
