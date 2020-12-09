@@ -125,7 +125,7 @@ IGNORE 1 LINES
 
 -- Formalize Datatable -> 1 row / Country
 drop view if exists Denormalized_Dataset;
--- create view Denormalized_Dataset as
+create view Denormalized_Dataset as
 select Countrycodes, w1.Countries, Gh_Emission_PerCap, satisfaction_scores
 		, LifeExpectancy as Nation_LifeExp
         , w.Weekly_Hours as WkHrs_All
@@ -172,7 +172,7 @@ left join satisfaction_scores 	s on s.countries = w1.countries
 drop view if exists Main_Table;
 create view Main_Table as 
 select Countries
--- 	, Gh_Emission_percap 	as GreenHouse_Em_percap
+ 	, Gh_Emission_percap 	as GreenHouse_Em_percap
     , satisfaction_scores	as Avg_Satisfaction
     , Nation_lifeExp 		as LifeExpectancy
     , WkHrs_all				as Weekly_AvgWkHrs
