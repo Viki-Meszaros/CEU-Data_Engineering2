@@ -72,10 +72,21 @@ IGNORE 1 LINES
 set 	
 Weekly_Hours = nullif(@Weekly_Hours, ':');
 
+drop table if exists Satisfaction_Scores;
+CREATE TABLE Satisfaction_Scores
+(Countries varchar(200) NOT NULL,
+Satisfaction_Scores FLOAT,
+PRIMARY KEY(Countries));
 
-
-
-
+SHOW VARIABLES LIKE "secure_file_priv";
+LOAD DATA INFILE 'c:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Satisfaction_Scores.txt' 
+INTO TABLE Satisfaction_Scores
+FIELDS TERMINATED BY '	' 
+LINES TERMINATED BY '\r\n' 
+IGNORE 1 LINES 
+	(Countries, @Satisfaction_Scores)
+set 	
+Satisfaction_Scores = nullif(@Satisfaction_Scores, ':');
 
 
 drop table if exists LifeExpectancy;
@@ -107,12 +118,15 @@ FIELDS TERMINATED BY '	'
 LINES TERMINATED BY '\r\n' 
 IGNORE 1 LINES 
 	(Countrycodes, Countries);
+    
+    
+
 
 
 -- Formalize Datatable -> 1 row / Country
 drop view if exists Denormalized_Dataset;
-create view Denormalized_Dataset as
-select Countrycodes, w1.Countries, Gh_Emission_PerCap
+-- create view Denormalized_Dataset as
+select Countrycodes, w1.Countries, Gh_Emission_PerCap, satisfaction_scores
 		, LifeExpectancy as Nation_LifeExp
         , w.Weekly_Hours as WkHrs_All
 		, w1.Weekly_hours as Female_WkHrs
@@ -122,13 +136,10 @@ select Countrycodes, w1.Countries, Gh_Emission_PerCap
         , Emp_rate_Highschool 		as Emp_Rate_HSch
         , Emp_rate_University		as Emp_Rate_Uni
     from weeklyworkhours w1	
-left join (
-	select Countries, Weekly_hours as Male_WorkHours 
-	from weeklyworkhours w1
-    where sex = 'Male') 
-    f on f.Countries = w1.Countries
-left join Countrycodes c on c.Countries = w1.Countries 
-left join Lifeexpectancy l on l.Countries = w1.Countries 
+left join (select Countries, Weekly_hours as Male_WorkHours from weeklyworkhours w1 where sex = 'Male') 
+								f on f.Countries = w1.Countries
+left join 		Countrycodes 	c on c.Countries = w1.Countries 
+left join 		Lifeexpectancy 	l on l.Countries = w1.Countries 
 left join (Select f.Countries
 ,f.employment_rate as Emp_Rate_PrimarySchool
 ,  Emp_Rate_HighSchool,  Emp_Rate_University, Emp_Rate_All
@@ -149,9 +160,10 @@ left join (
 	where education_level = 'All'
 ) f3 on f3.Countries = f.Countries
 	where education_level = '0-2') 
-    e on e.countries = w1.countries
-left join greenhouse_emissions g on g.Countries = w1.Countries
-left join workhours w on w.Countries = w1.Countries
+								e on e.countries = w1.countries
+left join greenhouse_emissions 	g on g.Countries = w1.Countries
+left join 			workhours 	w on w.Countries = w1.Countries
+left join satisfaction_scores 	s on s.countries = w1.countries
 	where sex = 'Female' ;
     
     
@@ -160,7 +172,8 @@ left join workhours w on w.Countries = w1.Countries
 drop view if exists Main_Table;
 create view Main_Table as 
 select Countries
-	, Gh_Emission_percap 	as GreenHouse_Em_percap
+-- 	, Gh_Emission_percap 	as GreenHouse_Em_percap
+    , satisfaction_scores	as Avg_Satisfaction
     , Nation_lifeExp 		as LifeExpectancy
     , WkHrs_all				as Weekly_AvgWkHrs
     , Emp_Rate_All			as Employment_Rate
@@ -182,8 +195,6 @@ select Countries
     , Emp_Rate_HSch
     , Emp_Rate_Uni
 from Denormalized_Dataset;
-
-
 
 
  

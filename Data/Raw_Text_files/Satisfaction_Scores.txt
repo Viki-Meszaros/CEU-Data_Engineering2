@@ -1,0 +1,37 @@
+Countries	Satisfaction_Scores
+European Union (EU6-1958, EU9-1973, EU10-1981, EU12-1986, EU15-1995, EU25-2004, EU27-2007, EU28-2013, EU27-2020)	7.3
+European Union - 27 countries (from 2020)	7.3
+European Union - 28 countries (2013-2020)	7.3
+Belgium	7.6
+Bulgaria	5.4
+Czechia	7.4
+Denmark	7.8
+Germany (until 1990 former territory of the FRG)	7.4
+Estonia	7
+Ireland	8.1
+Greece	6.4
+Spain	7.3
+France	7.3
+Croatia	6.3
+Italy	7.1
+Cyprus	7.1
+Latvia	6.7
+Lithuania	6.4
+Luxembourg	7.6
+Hungary	6.5
+Malta	7.5
+Netherlands	7.7
+Austria	8
+Poland	7.8
+Portugal	6.7
+Romania	7.3
+Slovenia	7.3
+Slovakia	7.1
+Finland	8.1
+Sweden	7.8
+United Kingdom	7.6
+Iceland	7.9
+Norway	8
+Switzerland	8
+Serbia	5.6
+Turkey	5.7
