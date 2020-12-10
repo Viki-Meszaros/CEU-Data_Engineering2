@@ -14,18 +14,20 @@ rm(list=ls())
 # Call packages
 #install.packages('WDI')
 library(WDI)
+#install.package('tidyverse')
 library(tidyverse)
 
 my_path <- '~/Documents/CEU/Fall_semester/Data_engineering_2/CEU-Data_Engineering2/'
-codes <- read.csv(paste0(my_path, 'country_codes.csv'))
+codes <- read.csv(paste0(my_path, 'Data/country_codes.csv'))
 # WDI is an API
 
-# Narrow down the serach for: GDP + something + capita + something + constant
+# Find the indicators of the data I need
+# Search for: GDP + something + capita + something + constant, and population + total
 a <- WDIsearch('gdp.*capita.*constant') # indicator will be NY.GDP.PCAP.PP.KD
 b <- WDIsearch('population, total') # SP.POP.TOTL
 rm(a,b)
 
-# Get all the data - 2018 is the latest available data for life expectancy
+# Get all the data - in 2018 
 df <- WDI(indicator=c('NY.GDP.PCAP.PP.KD', 'SP.POP.TOTL'), 
                 country="all", start=2018, end=2018)
 
@@ -35,6 +37,9 @@ df <- WDI(indicator=c('NY.GDP.PCAP.PP.KD', 'SP.POP.TOTL'),
 #     usually contains a number
 d1 <- df %>% filter(grepl("[[:digit:]]", df$iso2c))
 d1
+rm(d1)
+
+
 # Filter these out
 df <- df %>% filter( !grepl("[[:digit:]]", df$iso2c) )
 
@@ -68,7 +73,7 @@ rm( d1 , drop_id, fl_iso2c , retain_id )
 ### 
 # Check for missing observations
 m <- df %>% filter( !complete.cases( df ) )
-# Drop if gdp or total population missing -> if not complete case except iso2c
+# Drop if gdp or total population missing 
 df <- df %>% filter( complete.cases( df ) | is.na( df$iso2c ) )
 rm(m)
 
@@ -86,6 +91,9 @@ df <-df %>% transmute( country = country,
 names(codes) <- c("country_code", "country")
 cd <- data.frame()
 
+codes$country[11] <- "Germany"
+codes$country[10] <- "Czech Republic"
+
 for (i in 1:length(codes$country_code)) {
   if (nchar(codes$country_code[i]) == 2){
     cd[i] <- codes[i] 
@@ -94,7 +102,7 @@ for (i in 1:length(codes$country_code)) {
   }
 }
 
-i = 12
+write_csv(data_raw, paste0(my_path,'raw/WDI_lifeexp_raw.csv'))
 
 # Join the country codes to gdp and population table
 data_raw <- left_join(df, codes, by = "country")
@@ -111,9 +119,7 @@ if (codes$country_code[i] %in% data_raw$country_code) {
 }
 }
 
-codes[19] <- NULL
-codes$country[11] <- "Germany"
-codes$country[10] <- "Czech Republic"
+
 
 
 drop_id <- c("DE_TOT" )
