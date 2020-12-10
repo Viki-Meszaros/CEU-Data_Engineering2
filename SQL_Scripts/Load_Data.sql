@@ -178,8 +178,8 @@ select * from Denormalized_Dataset ;
 
 -- 1) Main Table -> 2 Load in KNIME
 drop view if exists Main_Table;
--- create view Main_Table as 
-select Countrycodes, Countries
+create view Main_Table as 
+select Countrycodes, substring(countries, 2,(length(countries)-2)) as Countries
  	, Gh_Emission_percap 	as GreenHouse_Em_percap
     , satisfaction_scores	as Avg_Satisfaction
     , Nation_lifeExp 		as LifeExpectancy
