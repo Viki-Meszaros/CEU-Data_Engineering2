@@ -8,7 +8,7 @@ Belgium	81.7
 Bulgaria	75
 Czechia	79.1
 Denmark	81
-Germany (until 1990 former territory of the FRG)	81
+Germany 	81
 Germany including former GDR	81
 Estonia	78.5
 Ireland	82.3
