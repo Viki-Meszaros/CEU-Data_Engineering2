@@ -25,6 +25,6 @@ We made our project reproducable with only slightly modifications.
 6. You are done, now run the workflow
 
 The overview of our workflow is the following:
-(https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/Project_Flowchart.jpg)
+![Workflow image](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/Project_Flowchart.jpg)
 
 For further details prease read our [report](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/VM_BH_AS_Report.pdf).
