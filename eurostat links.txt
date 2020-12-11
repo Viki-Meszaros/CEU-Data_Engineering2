@@ -1,8 +1,0 @@
-Life Expectancy:
-https://ec.europa.eu/eurostat/databrowser/view/demo_mlexpec$DV_292/default/table?lang=en
-Avg. weekly hours:
-https://ec.europa.eu/eurostat/databrowser/view/lfsa_ewhun2/default/table?lang=en
-Greenhouse emission:
-https://ec.europa.eu/eurostat/databrowser/view/sdg_13_10/default/table?lang=en
-Avg. rating of satisfaction:
-https://ec.europa.eu/eurostat/databrowser/view/ilc_pw01$DV_528/default/table?lang=en&fbclid=IwAR3rCwljKXjgmxxYq76DAksyQSA3FHmbrPts2oDY1b8yi1v3uFuNvce06Ww
