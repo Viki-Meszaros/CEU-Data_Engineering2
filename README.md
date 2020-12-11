@@ -11,12 +11,12 @@
 
 
 
-# Reproducability of the workflow
-We made our project reproducable with only slightly modifications.
+# Workflow Reproducability
+We made our project reproducable with only slight modifications.
 *Steps you need to do:*
-1. Open the Knime Workflow and run the File Reader section (it saves the required files to your MySQL upload folder, if the path we included does not work, please change it to your folder 
+1. Open the Knime Workflow and 1st run the File Reader section (it saves the required files to your MySQL upload folder, if the path we included does not work, please change it to your folder 
 2. Open MySQL on your computer and run the provided Load_Data.sql script
-3. Configure the MySQL Connector node in Knime, set up your username & password
-4. Make sure that you have R installed on your computer, have Rserve package installed in it and set your R root folder location in KNIME (File>Preferences>KNIME>R>Path to R home)
-5. If you want to save the output images change the "Output Location" for all the "Input Nodes", but we also saved all the outputs [here](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/tree/main/Out)
+3. Configure the MySQL Connector node in Knime, i.e. set your own username & password
+4. Make sure you have R installed on your PC, have the Rserve package installed in it & set your R root folder location in KNIME (File>Preferences>KNIME>R>Path to R home)
+5. If you want to save the output images change the "Output Location" for all the "Input Nodes". We saved all the outputs [here](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/tree/main/Out) for your convenience
 6. Run the workflow
