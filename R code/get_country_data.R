@@ -18,7 +18,8 @@ library(WDI)
 library(tidyverse)
 
 my_path <- '~/Documents/CEU/Fall_semester/Data_engineering_2/CEU-Data_Engineering2/'
-codes <- read.csv(paste0(my_path, 'Data/country_codes.csv'))
+
+
 # WDI is an API
 
 # Find the indicators of the data I need
@@ -83,75 +84,11 @@ rm(m)
 # Recreate table:
 #   Rename variables 
 #   Drop all the others !! in this case write into readme it is referring to year 2018!!
-df <-df %>% transmute( country = country,
-                       population=SP.POP.TOTL,
-                       gdppc=NY.GDP.PCAP.PP.KD)
+df <-df %>% transmute( 
+  Country_code = iso2c,
+  country = country,
+  population=SP.POP.TOTL,
+  gdppc=NY.GDP.PCAP.PP.KD)
 
-# Change the row names in codes
-names(codes) <- c("country_code", "country")
-cd <- data.frame()
-
-codes$country[11] <- "Germany"
-codes$country[10] <- "Czech Republic"
-
-for (i in 1:length(codes$country_code)) {
-  if (nchar(codes$country_code[i]) == 2){
-    cd[i] <- codes[i] 
-  } else{
-    cd[i] <- NA
-  }
-}
-
-write_csv(data_raw, paste0(my_path,'raw/WDI_lifeexp_raw.csv'))
-
-# Join the country codes to gdp and population table
-data_raw <- left_join(df, codes, by = "country")
-sum(!is.na(data_raw$country_code))
-
-drop_id <- c("EA18", "EA19", "EEA30_2007", "EEA31", "EFTA", "EU27_2007", "EU27_2020", "EU28" )
-codes <- codes %>% filter( !grepl( paste( drop_id , collapse="|"), codes$country_code ) ) 
-
-for (i in 1:length(codes$country)) {
-if (codes$country_code[i] %in% data_raw$country_code) {
-  codes$good[i] <- "fine"
-}  else{
- codes$good[i] <- "NOT"
-}
-}
-
-
-
-
-drop_id <- c("DE_TOT" )
-codes <- codes %>% filter( !grepl( paste( drop_id , collapse="|"), codes$country_code ) ) 
-
-
-
-
-###
-# Check for extreme values
-# all HISTOGRAMS
-df %>%
-  keep(is.numeric) %>% 
-  gather() %>% 
-  ggplot(aes(value)) +
-  facet_wrap(~key, scales = "free") +
-  geom_histogram()
-
-# It seems we have a large value(s) for population:
-df %>% filter( population > 500 )
-# These are India and China... not an extreme value
-
-# Check for summary as well
-summary( df )
-
-
-
-
-
-# Save the raw data file
-my_path <- "Documents/Egyetem/CEU/Teaching_2020/Coding_with_R/git_coding_1/ECBS-5208-Coding-1-Business-Analytics/Class_8/data/"
-write_csv(data_raw, paste0(my_path,'raw/WDI_lifeexp_raw.csv'))
-
-
+write_csv(df, paste0(my_path,'data/Population_GDP.csv'))
 
