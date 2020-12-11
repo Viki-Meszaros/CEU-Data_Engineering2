@@ -5,7 +5,7 @@ This project was created for fulfilling term-project requirements for the Data E
 
 # Content of the repository
 * [Report of the project](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/VM_BH_AS_Report.pdf)
-* [PPT](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/VM_BH_AS_presentation.pptx)
+* [PPT](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/VM_BH_AS_Presentation.pptx)
 * [Knime Workflow](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/VM_BH_AS_Workflow.knwf) 
 * [Code folder](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/tree/main/Code) - containing an SQL script for creating our Eurostat database and an R script dowloading WDI data
 * [Data folder](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/tree/main/Data) - in which you can find a table of [country_codes](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/blob/main/Data/country_codes.csv) which we used as a linktable and a [Raw_text_files folder](https://github.com/Viki-Meszaros/CEU-Data_Engineering2/tree/main/Data/Raw_Text_files) having all the input files for the Knime workflow
